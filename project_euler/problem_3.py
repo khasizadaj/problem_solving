@@ -5,14 +5,36 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
 """
 from math import sqrt
+from typing import Iterable
 
+def greatest_prime_factor(num: int) -> int:
+    """
+    Returns greatest prime factor of given number.
 
-def greatest_prime_factor(num):
+    Args
+        num: integer number
+
+    Output
+        integer number
+    """
+
     factors = get_factors(num)
     return max(factors)
 
 
-def get_factors(num):
+def get_factors(num: int) -> Iterable[int]:
+    """
+    Returns all prime factors of given number as generator
+    object.
+    
+    Args
+        num: integer number
+    
+    Output
+        1. if number is prime, it returns 1 and number itself
+        2. returns prime factors of number. 
+    """
+
     if is_prime(num):
         yield 1
         yield num
@@ -21,10 +43,11 @@ def get_factors(num):
     curr_num = num
     factor = 1
     while 1 < curr_num <= num and factor <= curr_num:
-        # print(curr_num, factor)
+
         if curr_num % factor != 0:
             factor += 1
             continue
+
         elif is_prime(factor):
             yield factor
             curr_num /= factor
@@ -33,7 +56,7 @@ def get_factors(num):
         factor += 1
 
 
-def is_prime(num: int):
+def is_prime(num: int) -> bool:
     if num == 1:
         return True
 
