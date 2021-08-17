@@ -16,8 +16,8 @@ from typing import Iterable, Optional
 from math import gcd
 
 
-def least_common_multiple_two(a: int, b: int) -> int:
-    multiple = a * b
+def least_common_multiple_two(num_1: int, num_2: int) -> int:
+    multiple = num_1 * num_2
 
     # LCM can only be smallest positive integer.
     if multiple < 0:
@@ -27,23 +27,24 @@ def least_common_multiple_two(a: int, b: int) -> int:
     if multiple == 0:
         return None
 
-    return multiple // gcd(a, b)
+    return multiple // gcd(num_1, num_2)
 
 
 """
-- Steps to calculate LCM of numbers until given number
+- Steps to calculate LCM of numbers until given number (`n`)
     - initiate least common multiple (in short, LCM) as 1
+    - numbers = half of the list that strats from 1 to `n` (as they are already multiple of 
+    previous)
     - loop through the list of numbers until given number:
         - find least common multiple (current LCM) of current number and LCM
         - if current LCM is not equal to LCM:
             - update LCM with current LCM
     - return LCM
-
 """
 
 
 def least_common_multiple_many(num: int) -> Iterable[int]:
-    nums = list(range(1, num + 1))
+    nums = list(range(num // 2 + 1, num + 1))
     lcm = 1
     for num in nums:
         curr_lcm = least_common_multiple_two(num, lcm)
