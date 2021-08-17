@@ -12,7 +12,7 @@ numbers from 1 to 20?
 
 """
 
-from typing import Iterable, Optional
+from typing import Iterable
 from math import gcd
 
 

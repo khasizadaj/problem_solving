@@ -63,3 +63,4 @@ def calc_square_of_sum(num: int) -> int:
 assert calc_difference(10) == 2640
 assert calc_difference(4) == 70
 print(calc_difference(100))
+print(calc_difference(10))
