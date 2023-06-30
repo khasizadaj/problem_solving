@@ -1,8 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "calorie.h"
+#include "libs.h"
+#include "helper.h"
 
 char	*ft_realloc(char *old, int old_size, int new_size)
 {
